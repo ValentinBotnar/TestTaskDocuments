@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using TestTaskDocuments.Data;
+using TestTaskDocuments.Models;
+
+namespace TestTaskDocuments.Controllers
+{
+    public class ListOfUsersController : Controller
+    {
+        ApplicationDbContext _context;
+
+        public ListOfUsersController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        //[Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult GetAllUsers(ApplicationUser applicationDbContext)
+        {
+            var users = _context.Users.ToList();
+
+            return View(users);
+        }
+
+        public IActionResult GetInfoAboutUser(string UserEmail)
+        {
+            var user = _context.Users.Find(UserEmail);
+            
+            _context.Users.Remove(user);
+            return View(/*_context.Users.Find(UserEmail)*/);
+        }
+    }
+}

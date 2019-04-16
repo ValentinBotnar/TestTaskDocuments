@@ -1,0 +1,20 @@
+﻿@model TestTaskDocuments.Models.ApplicationUser
+
+<h2>GetInfoAboutUser</h2>
+<h2>Email: @Model.Email</h2>
+<p>@Model.PhoneNumber</p>
+<p>Role: @ViewBag.Role</p>
+
+
+@using (Html.BeginForm("ActionWithUser", "ListOfUsers", new { userId = Model.Id }, FormMethod.Post ))
+{
+    <select id="roleFromDropDownList" name="roleFromDropDownList">
+        <option value="">RoleOfUser</option>
+        <option>Subscriber</option>
+        <option>Editor</option>
+        <option>Admin</option>
+    </select>
+    
+    <button name="action" value="save">Set role</button>
+    <p><button name="action" value="deleteUser">Delete user</button></p>
+}

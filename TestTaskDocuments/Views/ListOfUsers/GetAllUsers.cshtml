@@ -1,0 +1,14 @@
+﻿@model IEnumerable<TestTaskDocuments.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "GetAllUsers";
+}
+
+<h2>GetAllUsers</h2>
+
+@foreach (var user in Model)
+{
+    <p> @Html.ActionLink(user.Email, "GetInfoAboutUser", "ListOfUsers", new { UserId = user.Id }, null)</p>
+}
+
+
+
