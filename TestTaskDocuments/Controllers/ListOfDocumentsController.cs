@@ -20,6 +20,9 @@ namespace TestTaskDocuments.Controllers
             _appEnvironment = appEnvironment;
         }
 
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Editor")]
+        [Authorize(Roles = "Subscriber")]
         [HttpGet]
         public IActionResult GetAllDocuments()
         {
