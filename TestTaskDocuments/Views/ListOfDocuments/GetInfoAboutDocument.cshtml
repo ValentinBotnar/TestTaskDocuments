@@ -1,0 +1,22 @@
+﻿@model TestTaskDocuments.Models.Task.PublishedDocument
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link type="text/css" rel="stylesheet" href="../../Content/bootstrap/dist/css/bootstrap.css" />
+
+<h2>GetInfoAboutDocument</h2>
+
+<p><b>Header:</b> @Model.Header</p>
+<p><b>Description:</b> @Model.Description</p>
+<p><b>Language:</b> @Model.Language</p>
+<p><b>Publisher:</b> @Model.Publisher</p>
+
+<button type="submit" id="addressSearch" name="Donwload" 
+        onclick="location.href='@Url.Action("DownloadFile", "ListOfDocuments", new {documentId = Model.Id })'">
+    Download</button>
+
+<button type="submit" id="addressSearch" name="Donwload"
+        onclick="location.href='@Url.Action("DeletDocument", "ListOfDocuments", new {documentId = Model.Id })'">
+    Delete document
+</button>
+

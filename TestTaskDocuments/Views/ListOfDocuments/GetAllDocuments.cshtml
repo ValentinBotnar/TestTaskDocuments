@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TestTaskDocuments.Models.Task.PublishedDocument>
+
+<h2>GetAllDocuments</h2>
+
+@foreach (var document in Model)
+{
+    <p> @Html.ActionLink(document.Header, "GetInfoAboutDocument", "ListOfDocuments", new { documentId = document.Id }, null)</p>
+}
+
+    <button type="submit" id="addressSearch" name="Donwload"
+            onclick="location.href='@Url.Action("CreateDocument", "ListOfDocuments")'">
+        UploadDocument
+    </button>

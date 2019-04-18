@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "CreateTask";
+}
+
+<h2>CreateTask</h2>
+
+@*С method="post" поялвяется ошибка: запрос слишком длинный*@
+<form asp-controller="ListOfDocuments" asp-action="CreateDocument" @*method="post"*@ enctype="multipart/form-data">
+
+    <select id="LanguageFromDropDownList" name="LanguageFromDropDownList">
+        <option value="">Language</option>
+        <option>Spanish</option>
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Arabic</option>
+        <option>Portuguese</option>
+        <option>Bengali</option>
+        <option>Russian</option>
+    </select>
+   
+    <p>Enter the header: </p>
+    @Html.TextBox("Header", "Header")
+    <p>Enter the description: </p>
+    @Html.TextBox("Description", "Description")
+    <p>Enter the comment: </p>
+    @Html.TextBox("Comment", "Comment")
+    <p>Upload document:</p>
+    <input type="file" name="file" /><br />
+
+    <button name="action" value="save">Upload</button>
+</form>

@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TestTaskDocuments.Models;
 using TestTaskDocuments.Models.AccountViewModels;
+using TestTaskDocuments.Models.Task;
 
 namespace TestTaskDocuments.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        //  public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<PublishedDocument> PublishedDocuments { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

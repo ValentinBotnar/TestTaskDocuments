@@ -18,7 +18,7 @@ namespace TestTaskDocuments.Controllers
             _userManager = manager;
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult GetAllUsers()
         {
@@ -27,6 +27,7 @@ namespace TestTaskDocuments.Controllers
             return View(users);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetInfoAboutUser(string UserId)
         {
             var user = await _userManager.FindByIdAsync(UserId);
@@ -35,6 +36,7 @@ namespace TestTaskDocuments.Controllers
             return View(user);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<RedirectResult> ActionWithUser(string roleFromDropDownList, string action, string userId)
         {

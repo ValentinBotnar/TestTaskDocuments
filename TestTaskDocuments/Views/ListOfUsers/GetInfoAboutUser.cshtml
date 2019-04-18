@@ -1,9 +1,9 @@
 ﻿@model TestTaskDocuments.Models.ApplicationUser
 
 <h2>GetInfoAboutUser</h2>
-<h2>Email: @Model.Email</h2>
-<p>@Model.PhoneNumber</p>
-<p>Role: @ViewBag.Role</p>
+<p><b>Email:</b> @Model.Email</p>
+<p><b>Phone number:</b> @Model.PhoneNumber</p>
+<p><b>Role:</b> @ViewBag.Role</p>
 
 
 @using (Html.BeginForm("ActionWithUser", "ListOfUsers", new { userId = Model.Id }, FormMethod.Post ))
